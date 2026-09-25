@@ -17,7 +17,7 @@
   --surface-2: #F7F5FD;
   --text: #16112E;
   --muted: #5A5575;
-  --faint: #8C88A6;
+  --faint: #6B6788;
   --border: #E7E3F4;
   --accent-text: #5B12B8;
   --grad-text: linear-gradient(120deg, #6A11CB 0%, #2575FC 60%, #16A6C9 100%);
@@ -39,7 +39,7 @@
     --surface-2: #221D40;
     --text: #F3F1FB;
     --muted: #ABA6C6;
-    --faint: #7E7A9A;
+    --faint: #A19DBD;
     --border: #2C2750;
     --accent-text: #C4A6FF;
     --grad-text: linear-gradient(120deg, #C4A6FF 0%, #7DB3FF 60%, #5FE3C0 100%);
@@ -59,7 +59,7 @@
   --surface-2: #221D40;
   --text: #F3F1FB;
   --muted: #ABA6C6;
-  --faint: #7E7A9A;
+  --faint: #A19DBD;
   --border: #2C2750;
   --accent-text: #C4A6FF;
   --grad-text: linear-gradient(120deg, #C4A6FF 0%, #7DB3FF 60%, #5FE3C0 100%);
@@ -362,8 +362,8 @@ h2 { font-size: clamp(2rem, 3.8vw, 2.9rem); line-height: 1.12; margin: 12px 0 16
 .g-2048 { background: linear-gradient(135deg, #FFE7B8, #FFC478); }
 .g-2048 .tiles { display: grid; grid-template-columns: repeat(3, 34px); gap: 6px; }
 .g-2048 .tiles i { height: 34px; border-radius: 8px; background: rgba(255,255,255,.55); display: grid; place-items: center; font-style: normal; font-weight: 800; font-size: .8rem; color: #7A4A00; }
-.g-2048 .tiles i.h { background: #F59E0B; color: #fff; }
-.g-2048 .tiles i.hh { background: #EA580C; color: #fff; }
+.g-2048 .tiles i.h { background: #B45309; color: #fff; }
+.g-2048 .tiles i.hh { background: #9A3412; color: #fff; }
 .g-math { background: linear-gradient(135deg, #C8B6FF, #8EA8FF); color: #2A1570; font-size: 2rem; font-weight: 800; letter-spacing: .02em; }
 .g-math span { background: rgba(255,255,255,.6); padding: 8px 18px; border-radius: 14px; }
 .g-memory { background: linear-gradient(135deg, #A7F3D0, #5EEAD4); }
@@ -410,7 +410,7 @@ h2 { font-size: clamp(2rem, 3.8vw, 2.9rem); line-height: 1.12; margin: 12px 0 16
 /* Footer */
 footer.site { padding: 56px 0 36px; border-top: 1px solid var(--border); color: var(--muted); font-size: .95rem; }
 .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 32px; }
-.footer-grid h4 { color: var(--text); font-size: .95rem; margin-bottom: 12px; }
+.footer-grid h3 { color: var(--text); font-size: .95rem; margin-bottom: 12px; }
 .footer-grid ul { list-style: none; display: grid; gap: 8px; }
 .footer-grid a:hover { color: var(--text); }
 .footer-grid .about p { margin-top: 12px; max-width: 320px; }
