@@ -3,236 +3,509 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz Master – Learn, Practice, Compete</title>
-  <meta name="description" content="Quiz Master is a learning app for students, teachers and schools: quizzes, study materials, doubt solving, study groups and brain games in one place.">
-  <meta property="og:title" content="Quiz Master – Learn, Practice, Compete">
-  <meta property="og:description" content="Quizzes, study materials, doubt solving, study groups and brain games for students and teachers.">
+  <title>Quiz Master – Quizzes, Study Notes &amp; Doubt Solving for Students</title>
+  <meta name="description" content="Quiz Master is a free learning app for students, teachers and schools. Practise chapter-wise quizzes, read study materials, ask doubts, join class groups and climb the leaderboard.">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Quiz Master">
+  <meta property="og:title" content="Quiz Master – Learn smarter. Practise daily.">
+  <meta property="og:description" content="Quizzes, study materials, doubt solving, study groups and brain games for students and teachers.">
   <meta property="og:url" content="https://shahshubham9090.github.io/Quiz-Master/">
-  <meta property="og:image" content="https://shahshubham9090.github.io/Quiz-Master/assets/logo.jpg">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://shahshubham9090.github.io/Quiz-Master/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#6A11CB">
   <link rel="canonical" href="https://shahshubham9090.github.io/Quiz-Master/">
-  <link rel="icon" href="assets/logo.jpg">
-  <link rel="apple-touch-icon" href="assets/logo.jpg">
+  <link rel="icon" type="image/webp" href="assets/logo-96.webp">
+  <link rel="apple-touch-icon" href="assets/logo-192.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Set theme and JS flag before first paint to avoid a flash. -->
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t); } catch (e) {}
+    })();
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Load the web font without blocking the first paint. -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap"></noscript>
   <link rel="stylesheet" href="styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Quiz Master",
+    "operatingSystem": "Android",
+    "applicationCategory": "EducationalApplication",
+    "description": "Quizzes, study materials, doubt solving, study groups and brain games for students, teachers and schools.",
+    "url": "https://shahshubham9090.github.io/Quiz-Master/",
+    "image": "https://shahshubham9090.github.io/Quiz-Master/assets/logo-512.webp",
+    "downloadUrl": "https://play.google.com/store/apps/details?id=com.shubham.computerapp",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }
+  }
+  </script>
 </head>
 <body>
 
-<header>
-  <nav class="container">
-    <a href="./" class="brand"><img src="assets/logo.jpg" alt="">Quiz Master</a>
+<!-- Icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-quiz" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10v6"/><path d="M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+  <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></symbol>
+  <symbol id="i-dashboard" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M3.6 1.8c-.3.3-.5.8-.5 1.4v17.6c0 .6.2 1.1.5 1.4l.1.1 9.9-9.9v-.2L3.7 1.7l-.1.1zm13.3 13.4-3.3-3.3v-.2l3.3-3.3.1.1 3.9 2.2c1.1.6 1.1 1.7 0 2.3l-3.9 2.2h-.1zm-.1.1L13.4 12 3.6 21.8c.4.4 1 .4 1.7.1l11.5-6.6M16.8 8.7 5.3 2.1c-.7-.4-1.3-.3-1.7.1l9.8 9.8 3.4-3.3z"/></symbol>
+</svg>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header class="site" id="top">
+  <nav class="container" aria-label="Main">
+    <a href="./" class="brand"><img src="assets/logo-96.webp" width="36" height="36" alt=""><span>Quiz Master</span></a>
     <div class="nav-links">
       <a href="#features">Features</a>
       <a href="#roles">For Schools</a>
       <a href="#games">Games</a>
-      <a href="#download" class="btn btn-primary">Get the App</a>
+      <a href="#faq">FAQ</a>
+      <button class="theme-toggle" type="button" aria-label="Switch colour theme">
+        <svg class="ico moon"><use href="#i-moon"/></svg>
+        <svg class="ico sun"><use href="#i-sun"/></svg>
+      </button>
+      <a href="#download" class="btn btn-primary btn-sm">Get the App</a>
     </div>
   </nav>
 </header>
 
-<main>
+<main id="main">
   <!-- Hero -->
   <section class="hero">
+    <div class="mesh" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="grid-lines" aria-hidden="true"></div>
     <div class="container hero-grid">
       <div>
-        <span class="pill"><span class="dot"></span>Free on Android</span>
-        <h1>Learn smarter. <span class="grad-text">Practice daily.</span> Compete with friends.</h1>
-        <p class="lead">Quiz Master puts quizzes, study notes, doubt solving and study groups in one app, so students can practise every day and teachers can see how their class is doing.</p>
-        <div class="hero-cta">
-          <a href="#download" class="btn btn-primary">Download Free</a>
-          <a href="#features" class="btn btn-ghost">See Features</a>
+        <span class="pill reveal"><b>Free</b> Now on Google Play</span>
+        <h1 class="reveal d1">Learn smarter.<br><span class="grad-text">Practise daily.</span><br>Top the leaderboard.</h1>
+        <p class="lead reveal d2">Quiz Master brings chapter-wise quizzes, study notes, doubt solving and class groups into one free app, so students practise every day and teachers see exactly how their class is doing.</p>
+        <div class="hero-cta reveal d3">
+          <a href="https://play.google.com/store/apps/details?id=com.shubham.computerapp" class="play-badge" target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#i-play"/></svg>
+            <span><small>Get it on</small><strong>Google Play</strong></span>
+          </a>
+          <a href="#features" class="btn btn-ghost">Explore features <svg class="ico"><use href="#i-arrow"/></svg></a>
         </div>
-        <div class="hero-roles">
-          <span>Students</span><span>Teachers</span><span>Schools &amp; Admins</span>
+        <div class="hero-meta reveal d3">
+          <span><svg class="ico"><use href="#i-check"/></svg>Free to use</span>
+          <span><svg class="ico"><use href="#i-check"/></svg>Students, teachers &amp; admins</span>
+          <span><svg class="ico"><use href="#i-check"/></svg>Light &amp; dark mode</span>
         </div>
       </div>
 
-      <div class="phone-wrap" aria-hidden="true">
-        <div class="phone">
+      <div class="device-stage" aria-hidden="true">
+        <div class="phone back">
+          <div class="screen">
+            <div class="screen-top">
+              <small>Quiz result</small>
+              <h4>Great job! 🎉</h4>
+            </div>
+            <div class="screen-body">
+              <div class="s-card">
+                <div class="result-ring"><div><span><b>85%</b>Score</span></div></div>
+                <p style="text-align:center">17 of 20 correct · +170 points</p>
+              </div>
+              <div class="s-card">
+                <h5>Your progress</h5>
+                <div class="mini-chart"><i style="height:40%"></i><i style="height:55%"></i><i style="height:48%"></i><i style="height:70%"></i><i style="height:62%"></i><i style="height:85%"></i></div>
+              </div>
+              <div class="s-card">
+                <div class="lb-row"><i class="av" style="background:linear-gradient(135deg,#FFD86F,#FFB347)"></i>Riya<b>2,410</b></div>
+                <div class="lb-row"><i class="av" style="background:linear-gradient(135deg,#8EC5FC,#6A11CB)"></i>You<b>2,180</b></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="phone front">
           <div class="screen">
             <div class="screen-top">
               <small>Welcome back 👋</small>
               <h4>Ready for today's quiz?</h4>
-              <div class="points">
+              <div class="stat-row">
                 <div><b>1,240</b>Points</div>
                 <div><b>#3</b>Rank</div>
                 <div><b>18</b>Quizzes</div>
               </div>
             </div>
             <div class="screen-body">
-              <div class="quiz-card">
-                <span class="tag">Chapter 13</span>
+              <div class="s-card">
+                <span class="s-tag">Chapter 13</span>
                 <h5>Computer Networks</h5>
                 <p>20 questions · 15 min</p>
-                <div class="bar"><i style="width: 70%"></i></div>
+                <div class="bar"><i style="width:70%"></i></div>
               </div>
-              <div class="quiz-card">
-                <h5>Q4. What does HTML stand for?</h5>
-                <div class="option">Hyper Tool Markup Language</div>
-                <div class="option right">HyperText Markup Language ✓</div>
-                <div class="option">Home Text Making Language</div>
+              <div class="s-card">
+                <div class="timer"><span>Question 4 of 20</span><b>⏱ 08:42</b></div>
+                <h5>What does HTML stand for?</h5>
+                <div class="opt">Hyper Tool Markup Language</div>
+                <div class="opt right">HyperText Markup Language <span>✓</span></div>
+                <div class="opt">Home Text Making Language</div>
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="chip-float chip-1">
+          <span class="dot-ico" style="background:linear-gradient(135deg,#00B09B,#3DDC97)"><svg class="ico"><use href="#i-check"/></svg></span>
+          <span>Doubt answered<small>by your teacher</small></span>
+        </div>
+        <div class="chip-float chip-2">
+          <span class="dot-ico" style="background:linear-gradient(135deg,#FFB347,#FF7E5F)"><svg class="ico"><use href="#i-trophy"/></svg></span>
+          <span>+170 points<small>Quiz completed</small></span>
+        </div>
+        <div class="chip-float chip-3">
+          <span class="dot-ico" style="background:var(--gradient)"><svg class="ico"><use href="#i-bell"/></svg></span>
+          <span>New quiz published<small>Chapter 14 · Databases</small></span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Features -->
-  <section id="features" class="soft">
+  <!-- Stats band -->
+  <div class="band">
     <div class="container">
-      <div class="section-head">
+      <div class="band-item"><strong class="grad-text">100%</strong><span>Free to use</span></div>
+      <div class="band-item"><strong class="grad-text">3</strong><span>Portals: student, teacher, admin</span></div>
+      <div class="band-item"><strong class="grad-text">4</strong><span>Built-in brain games</span></div>
+      <div class="band-item"><strong class="grad-text">24/7</strong><span>Study anytime, anywhere</span></div>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <section id="features" class="block">
+    <div class="container">
+      <div class="section-head reveal">
         <span class="eyebrow">Features</span>
-        <h2>Everything a student needs to prepare</h2>
-        <p>Practise, revise, ask questions and see your progress, all in one app.</p>
+        <h2>Everything a student needs to <span class="grad-text">score higher</span></h2>
+        <p>Practise, revise, ask questions and track your progress, all in one place.</p>
       </div>
-      <div class="grid-3">
-        <div class="card">
-          <div class="icon">📝</div>
-          <h3>Interactive Quizzes</h3>
-          <p>Chapter-wise MCQ quizzes with a timer, instant scoring and a full answer review after every attempt.</p>
-        </div>
-        <div class="card">
-          <div class="icon">📚</div>
-          <h3>Study Materials</h3>
-          <p>Notes and resources shared by your teachers, always available on your phone when you need to revise.</p>
-        </div>
-        <div class="card">
-          <div class="icon">🃏</div>
-          <h3>Flashcard Revision</h3>
-          <p>Swipe through study cards for quick revision before exams, one concept at a time.</p>
-        </div>
-        <div class="card">
-          <div class="icon">💬</div>
-          <h3>Ask a Doubt</h3>
-          <p>Stuck on a question? Post your doubt and get a reply straight from your teacher.</p>
-        </div>
-        <div class="card">
-          <div class="icon">👥</div>
-          <h3>Study Groups</h3>
-          <p>Join your class group with a simple code and learn with your classmates.</p>
-        </div>
-        <div class="card">
-          <div class="icon">🏆</div>
-          <h3>Leaderboards &amp; Progress</h3>
-          <p>Earn points, climb the leaderboard and follow your improvement with clear charts.</p>
-        </div>
+
+      <div class="bento">
+        <article class="tile wide reveal">
+          <div class="t-icon"><svg class="ico"><use href="#i-quiz"/></svg></div>
+          <h3>Timed, chapter-wise quizzes</h3>
+          <p>MCQ quizzes with a countdown timer, instant scoring and a full answer review after every attempt.</p>
+          <div class="t-visual q-demo" aria-hidden="true">
+            <div class="q">Which device connects different networks?</div>
+            <div class="a">Hub</div>
+            <div class="a ok">Router <svg class="ico"><use href="#i-check"/></svg></div>
+            <div class="a">Repeater</div>
+          </div>
+        </article>
+
+        <article class="tile wide reveal d1">
+          <div class="t-icon mint"><svg class="ico"><use href="#i-chart"/></svg></div>
+          <h3>Results &amp; progress charts</h3>
+          <p>See every score, every attempt, and a clear chart of how you're improving over time.</p>
+          <div class="t-visual" aria-hidden="true">
+            <div class="chart-demo">
+              <div><i style="height:38%"></i><span>Ch 1</span></div>
+              <div><i style="height:52%"></i><span>Ch 2</span></div>
+              <div><i style="height:46%"></i><span>Ch 3</span></div>
+              <div><i style="height:68%"></i><span>Ch 4</span></div>
+              <div><i style="height:74%"></i><span>Ch 5</span></div>
+              <div><i style="height:90%"></i><span>Ch 6</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="tile reveal">
+          <div class="t-icon coral"><svg class="ico"><use href="#i-chat"/></svg></div>
+          <h3>Ask a doubt</h3>
+          <p>Stuck? Post your question and get an answer from your teacher.</p>
+          <div class="t-visual chat" aria-hidden="true">
+            <div class="bubble me">What is the difference between RAM and ROM?</div>
+            <div class="bubble them"><small>Teacher</small>RAM is temporary and erased at power-off; ROM keeps data permanently.</div>
+          </div>
+        </article>
+
+        <article class="tile reveal d1">
+          <div class="t-icon amber"><svg class="ico"><use href="#i-users"/></svg></div>
+          <h3>Class groups</h3>
+          <p>Join your teacher's group with a code, or accept an invite in one tap.</p>
+          <div class="t-visual" aria-hidden="true">
+            <div class="code-demo"><span>C</span><span>S</span><span>1</span><span>2</span><span>A</span></div>
+            <div class="avatars">
+              <i style="background:linear-gradient(135deg,#FFD86F,#FFB347)"></i>
+              <i style="background:linear-gradient(135deg,#8EC5FC,#6A11CB)"></i>
+              <i style="background:linear-gradient(135deg,#3DDC97,#00B09B)"></i>
+              <i style="background:linear-gradient(135deg,#FF8FA3,#DD2476)"></i>
+              <i style="background:linear-gradient(135deg,#7DB3FF,#2575FC)"></i>
+            </div>
+          </div>
+        </article>
+
+        <article class="tile reveal d2">
+          <div class="t-icon"><svg class="ico"><use href="#i-layers"/></svg></div>
+          <h3>Flashcard revision</h3>
+          <p>Swipe through study cards for fast last-minute revision.</p>
+          <div class="t-visual" aria-hidden="true">
+            <div class="cards-demo">
+              <div></div><div></div>
+              <div>1 byte = 8 bits</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="tile wide reveal">
+          <div class="t-icon mint"><svg class="ico"><use href="#i-book"/></svg></div>
+          <h3>Study materials from your teachers</h3>
+          <p>Notes and resources, organised and always on your phone.</p>
+          <div class="t-visual" aria-hidden="true">
+            <div class="file-row"><span class="f" style="background:#E5484D">PDF</span><span>Chapter 13 – Networking notes<small>Shared by your teacher</small></span></div>
+            <div class="file-row"><span class="f" style="background:#2575FC">DOC</span><span>Important questions – Unit 4<small>New this week</small></span></div>
+          </div>
+        </article>
+
+        <article class="tile wide reveal d1">
+          <div class="t-icon amber"><svg class="ico"><use href="#i-trophy"/></svg></div>
+          <h3>Points &amp; leaderboards</h3>
+          <p>Earn points for every quiz and see where you rank in your class.</p>
+          <div class="t-visual" aria-hidden="true">
+            <div class="rank-row"><span class="n">1</span><i class="av" style="background:linear-gradient(135deg,#FFD86F,#FFB347)"></i>Riya<b>2,410</b></div>
+            <div class="rank-row"><span class="n">2</span><i class="av" style="background:linear-gradient(135deg,#3DDC97,#00B09B)"></i>Aarav<b>2,295</b></div>
+            <div class="rank-row"><span class="n">3</span><i class="av" style="background:linear-gradient(135deg,#8EC5FC,#6A11CB)"></i>You<b>2,180</b></div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- Roles -->
-  <section id="roles">
+  <section id="roles" class="block soft">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <span class="eyebrow">For every role</span>
-        <h2>Built for students, teachers and schools</h2>
-        <p>Each person gets their own portal with the tools they need.</p>
+        <h2>One app. Three portals.</h2>
+        <p>Students, teachers and admins each get the tools they need.</p>
       </div>
-      <div class="roles">
-        <div class="role">
-          <span class="role-badge" style="background: linear-gradient(135deg, #00B09B, #3DDC97)">Students</span>
-          <h3>Practise and grow</h3>
-          <ul>
-            <li>Take quizzes and review every answer</li>
-            <li>Read study materials and flashcards</li>
-            <li>Ask doubts and get teacher replies</li>
-            <li>Join class groups with a code</li>
-            <li>Track points, rank and results</li>
+
+      <div class="tabs" role="tablist" aria-label="Roles">
+        <button class="tab" role="tab" id="tab-students" aria-controls="panel-students" aria-selected="true"><svg class="ico"><use href="#i-cap"/></svg>Students</button>
+        <button class="tab" role="tab" id="tab-teachers" aria-controls="panel-teachers" aria-selected="false" tabindex="-1"><svg class="ico"><use href="#i-users"/></svg>Teachers</button>
+        <button class="tab" role="tab" id="tab-admins" aria-controls="panel-admins" aria-selected="false" tabindex="-1"><svg class="ico"><use href="#i-dashboard"/></svg>Admins</button>
+      </div>
+
+      <div class="panel reveal" role="tabpanel" id="panel-students" aria-labelledby="tab-students">
+        <div>
+          <h3>Practise, revise and grow</h3>
+          <p>Everything a student needs to prepare for exams, in their pocket.</p>
+          <ul class="checks">
+            <li><span class="ck"><svg class="ico"><use href="#i-check"/></svg></span><span><strong>Take quizzes</strong><span>Timed MCQs with a full review of every answer.</span></span></li>
+            <li><span class="ck"><svg class="ico"><use href="#i-check"/></svg></span><span><strong>Study anywhere</strong><span>Materials and flashcards from your teachers.</span></span></li>
+            <li><span class="ck"><svg class="ico"><use href="#i-check"/></svg></span><span><strong>Ask doubts</strong><span>Get answers straight from your teacher.</span></span></li>
+            <li><span class="ck"><svg class="ico"><use href="#i-check"/></svg></span><span><strong>Track progress</strong><span>Points, rank, results and charts.</span></span></li>
           </ul>
         </div>
-        <div class="role">
-          <span class="role-badge" style="background: var(--gradient)">Teachers</span>
-          <h3>Guide your class</h3>
-          <ul>
-            <li>Create groups and invite students</li>
-            <li>Build quizzes and share materials</li>
-            <li>Answer student doubts</li>
-            <li>Follow each student's progress</li>
-            <li>Notify students about new quizzes</li>
+        <div class="panel-art mint" aria-hidden="true">
+          <div class="glass"><svg class="ico"><use href="#i-quiz"/></svg><span>Quizzes taken<small>This month</small></span><b>18</b></div>
+          <div class="glass"><svg class="ico"><use href="#i-trophy"/></svg><span>Class rank<small>Up 2 places</small></span><b>#3</b></div>
+          <div class="glass"><svg class="ico"><use href="#i-zap"/></svg><span>Average score<small>Last 5 quizzes</small></span><b>82%</b></div>
+        </div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="panel-teachers" aria-labelledby="tab-teachers" hidden>
+        <div>
+          <h3>Guide your class with less effort</h3>
+          <p>Set work, answer questions and see who needs help.</p>
+          <ul class="checks">
+            <li><span class="ck"><svg class="ico"><use href="#i-check"/></svg></span><span><strong>Create class groups</strong><span>Share a join code or invite students directly.</span></span></li>
+            <li><span class="ck"><svg class="ico"><use href="#i-check"/></svg></span><span><strong>Build quizzes &amp; share notes</strong><span>Publish quizzes and study materials in minutes.</span></span></li>
+            <li><span class="ck"><svg class="ico"><use href="#i-check"/></svg></span><span><strong>Answer doubts</strong><span>Reply to student questions in one place.</span></span></li>
+            <li><span class="ck"><svg class="ico"><use href="#i-check"/></svg></span><span><strong>Notify your class</strong><span>Students get a notification when new work is posted.</span></span></li>
           </ul>
         </div>
-        <div class="role">
-          <span class="role-badge" style="background: linear-gradient(135deg, #FF512F, #DD2476)">Admins</span>
+        <div class="panel-art" aria-hidden="true">
+          <div class="glass"><svg class="ico"><use href="#i-users"/></svg><span>Students in group<small>Class 12 · Computer</small></span><b>42</b></div>
+          <div class="glass"><svg class="ico"><use href="#i-chat"/></svg><span>Doubts to answer<small>Today</small></span><b>5</b></div>
+          <div class="glass"><svg class="ico"><use href="#i-bell"/></svg><span>Quiz published<small>Sent to all students</small></span><b>✓</b></div>
+        </div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="panel-admins" aria-labelledby="tab-admins" hidden>
+        <div>
           <h3>Run the whole platform</h3>
-          <ul>
-            <li>Dashboard with users, attempts and scores</li>
-            <li>Bulk upload questions from CSV or Excel</li>
-            <li>Manage users, quizzes and materials</li>
-            <li>Send push notifications to everyone</li>
-            <li>Declare results and view details for every quiz</li>
+          <p>Full control over users, content and results.</p>
+          <ul class="checks">
+            <li><span class="ck"><svg class="ico"><use href="#i-check"/></svg></span><span><strong>Live dashboard</strong><span>Users, attempts and average scores at a glance.</span></span></li>
+            <li><span class="ck"><svg class="ico"><use href="#i-check"/></svg></span><span><strong>Bulk upload</strong><span>Import questions from CSV or Excel files.</span></span></li>
+            <li><span class="ck"><svg class="ico"><use href="#i-check"/></svg></span><span><strong>Manage everything</strong><span>Users, quizzes, materials and doubts.</span></span></li>
+            <li><span class="ck"><svg class="ico"><use href="#i-check"/></svg></span><span><strong>Declare results &amp; notify</strong><span>Publish results and send push notifications.</span></span></li>
           </ul>
+        </div>
+        <div class="panel-art coral" aria-hidden="true">
+          <div class="glass"><svg class="ico"><use href="#i-upload"/></svg><span>Questions imported<small>From Excel</small></span><b>120</b></div>
+          <div class="glass"><svg class="ico"><use href="#i-dashboard"/></svg><span>Quiz attempts<small>This week</small></span><b>356</b></div>
+          <div class="glass"><svg class="ico"><use href="#i-bell"/></svg><span>Notification sent<small>To all users</small></span><b>✓</b></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Games -->
-  <section id="games" class="soft">
+  <section id="games" class="block">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <span class="eyebrow">Brain games</span>
-        <h2>Take a break, keep your mind sharp</h2>
-        <p>Built-in games with their own leaderboard, for a quick break between study sessions.</p>
+        <h2>Take a break. <span class="grad-text">Stay sharp.</span></h2>
+        <p>Four built-in games with their own leaderboard, for a quick break between study sessions.</p>
       </div>
       <div class="games">
-        <div class="card game"><div class="emoji">🔢</div><h3>2048</h3><p>Slide and merge tiles to reach 2048.</p></div>
-        <div class="card game"><div class="emoji">⚡</div><h3>Math Speed Run</h3><p>Solve sums against the clock.</p></div>
-        <div class="card game"><div class="emoji">🧠</div><h3>Memory Match</h3><p>Flip cards and find the pairs.</p></div>
-        <div class="card game"><div class="emoji">⭕</div><h3>Tic Tac Toe</h3><p>The classic game, anytime.</p></div>
+        <article class="game reveal">
+          <div class="game-art g-2048" aria-hidden="true">
+            <div class="tiles"><i>2</i><i>4</i><i class="h">8</i><i>4</i><i class="h">16</i><i class="hh">32</i><i>2</i><i class="h">64</i><i class="hh">128</i></div>
+          </div>
+          <div class="game-body"><h3>2048</h3><p>Slide and merge tiles to reach 2048.</p></div>
+        </article>
+        <article class="game reveal d1">
+          <div class="game-art g-math" aria-hidden="true"><span>7 × 8 = ?</span></div>
+          <div class="game-body"><h3>Math Speed Run</h3><p>Solve as many sums as you can before time runs out.</p></div>
+        </article>
+        <article class="game reveal d2">
+          <div class="game-art g-memory" aria-hidden="true">
+            <div class="mcards"><i class="up">🧠</i><i></i><i class="up">🧠</i><i></i></div>
+          </div>
+          <div class="game-body"><h3>Memory Match</h3><p>Flip the cards and find every pair.</p></div>
+        </article>
+        <article class="game reveal d3">
+          <div class="game-art g-ttt" aria-hidden="true">
+            <div class="board"><i>X</i><i>O</i><i>X</i><i></i><i>X</i><i>O</i><i>O</i><i></i><i>X</i></div>
+          </div>
+          <div class="game-body"><h3>Tic Tac Toe</h3><p>The classic game, ready whenever you are.</p></div>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- How it works -->
-  <section>
+  <section class="block soft">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <span class="eyebrow">How it works</span>
         <h2>Start in under a minute</h2>
       </div>
       <div class="steps">
-        <div class="step"><h3>Download the app</h3><p>Install Quiz Master free from the Google Play Store.</p></div>
-        <div class="step"><h3>Sign up</h3><p>Create an account with your email or Google, as a student or a teacher.</p></div>
-        <div class="step"><h3>Start learning</h3><p>Join your class group, take a quiz and watch your score grow.</p></div>
+        <div class="step reveal"><div class="num">1</div><h3>Download the app</h3><p>Install Quiz Master free from the Google Play Store.</p></div>
+        <div class="step reveal d1"><div class="num">2</div><h3>Create your account</h3><p>Sign up with email or Google, as a student or a teacher.</p></div>
+        <div class="step reveal d2"><div class="num">3</div><h3>Start learning</h3><p>Join your class group, take a quiz and watch your score climb.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="block">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">FAQ</span>
+        <h2>Questions, answered</h2>
+      </div>
+      <div class="faq">
+        <details class="reveal">
+          <summary>Is Quiz Master free?<svg class="ico"><use href="#i-plus"/></svg></summary>
+          <p>Yes. Quiz Master is free to download and use. A small banner ad helps keep it that way.</p>
+        </details>
+        <details class="reveal">
+          <summary>Who is Quiz Master for?<svg class="ico"><use href="#i-plus"/></svg></summary>
+          <p>Students who want to practise and revise, teachers who want to set quizzes and support their class, and schools or coaching centres that want to run everything in one place.</p>
+        </details>
+        <details class="reveal">
+          <summary>How do I join my teacher's class?<svg class="ico"><use href="#i-plus"/></svg></summary>
+          <p>Ask your teacher for the group code and enter it in the Groups section of the app. Your teacher can also invite you directly, and you just tap Accept.</p>
+        </details>
+        <details class="reveal">
+          <summary>Can teachers create their own quizzes?<svg class="ico"><use href="#i-plus"/></svg></summary>
+          <p>Yes. Teachers can create quizzes, share study materials and answer doubts. Students are notified when new work is posted.</p>
+        </details>
+        <details class="reveal">
+          <summary>Is it available on iPhone?<svg class="ico"><use href="#i-plus"/></svg></summary>
+          <p>Quiz Master is available on Android through the Google Play Store today.</p>
+        </details>
+        <details class="reveal">
+          <summary>Is my data safe? Can I delete my account?<svg class="ico"><use href="#i-plus"/></svg></summary>
+          <p>Your data is stored securely on Google Firebase and is never sold. You can delete your account at any time from Profile → Delete Account. Read our <a href="privacy.html">Privacy Policy</a> or <a href="delete-account.html">how to delete your account</a>.</p>
+        </details>
       </div>
     </div>
   </section>
 
   <!-- Download -->
-  <section id="download">
+  <section id="download" class="block" style="padding-top:0">
     <div class="container">
-      <div class="cta">
-        <h2>Ready to start practising?</h2>
-        <p>Download Quiz Master for free and take your first quiz today.</p>
-        <a href="https://play.google.com/store/apps/details?id=com.shubham.computerapp" class="btn btn-white" target="_blank" rel="noopener">
-          <svg class="store-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 1.8c-.3.3-.5.8-.5 1.4v17.6c0 .6.2 1.1.5 1.4l.1.1 9.9-9.9v-.2L3.7 1.7l-.1.1zm13.3 13.4-3.3-3.3v-.2l3.3-3.3.1.1 3.9 2.2c1.1.6 1.1 1.7 0 2.3l-3.9 2.2h-.1zm-.1.1L13.4 12 3.6 21.8c.4.4 1 .4 1.7.1l11.5-6.6M16.8 8.7 5.3 2.1c-.7-.4-1.3-.3-1.7.1l9.8 9.8 3.4-3.3z"/></svg>
-          Get it on Google Play
-        </a>
+      <div class="cta reveal">
+        <div>
+          <h2>Ready to top your class?</h2>
+          <p>Download Quiz Master for free and take your first quiz today.</p>
+          <a href="https://play.google.com/store/apps/details?id=com.shubham.computerapp" class="play-badge" target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#i-play"/></svg>
+            <span><small>Get it on</small><strong>Google Play</strong></span>
+          </a>
+        </div>
+        <img class="cta-logo" src="assets/logo-512.webp" width="180" height="180" alt="" loading="lazy">
       </div>
     </div>
   </section>
 </main>
 
-<footer>
-  <div class="container footer-row">
-    <a href="./" class="brand"><img src="assets/logo.jpg" alt="">Quiz Master</a>
-    <nav class="footer-links" aria-label="Footer">
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="delete-account.html">Delete Account</a>
-      <a href="mailto:shah123shubham@gmail.com">Contact</a>
-    </nav>
-    <span>© <span id="year">2026</span> Quiz Master</span>
+<footer class="site">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="about">
+        <a href="./" class="brand"><img src="assets/logo-96.webp" width="36" height="36" alt="" loading="lazy">Quiz Master</a>
+        <p>Quizzes, study materials, doubt solving and class groups for students and teachers.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#roles">For Schools</a></li>
+          <li><a href="#games">Games</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="delete-account.html">Delete Account</a></li>
+          <li><a href="mailto:shah123shubham@gmail.com">Contact us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span class="year">2026</span> Quiz Master. All rights reserved.</span>
+      <span>Made for students, with care.</span>
+    </div>
   </div>
 </footer>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+<script src="site.js" defer></script>
 </body>
 </html>
