@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shahshubham9090.github.io/Quiz-Master/sitemap.xml
