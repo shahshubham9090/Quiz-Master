@@ -150,7 +150,7 @@
               <small>Welcome back 👋</small>
               <h4>Ready for today's quiz?</h4>
               <div class="stat-row">
-                <div><b>1,240</b>Points</div>
+                <div><b id="demo-points">1,240</b>Points</div>
                 <div><b>#3</b>Rank</div>
                 <div><b>18</b>Quizzes</div>
               </div>
@@ -158,16 +158,21 @@
             <div class="screen-body">
               <div class="s-card">
                 <span class="s-tag">Chapter 13</span>
-                <h5>Computer Networks</h5>
+                <h5>Computer Fundamentals</h5>
                 <p>20 questions · 15 min</p>
-                <div class="bar"><i style="width:70%"></i></div>
+                <div class="bar"><i id="demo-bar" style="width:20%"></i></div>
               </div>
-              <div class="s-card">
-                <div class="timer"><span>Question 4 of 20</span><b>⏱ 08:42</b></div>
-                <h5>What does HTML stand for?</h5>
-                <div class="opt">Hyper Tool Markup Language</div>
-                <div class="opt right">HyperText Markup Language <span>✓</span></div>
-                <div class="opt">Home Text Making Language</div>
+              <!-- Live demo: site.js cycles questions here. Without JS this answered state stays. -->
+              <div class="s-card demo-card" id="demo">
+                <div class="timer"><span id="demo-count">Question 4 of 20</span><b id="demo-timer">⏱ 08:42</b></div>
+                <div class="demo-q" id="demo-q">
+                  <h5>What does HTML stand for?</h5>
+                  <div class="opt"><span>Hyper Tool Markup Language</span></div>
+                  <div class="opt right"><span>HyperText Markup Language</span><i class="mk">✓</i></div>
+                  <div class="opt"><span>Home Text Making Language</span></div>
+                </div>
+                <span class="tap" id="demo-tap"></span>
+                <span class="plus" id="demo-plus">+10</span>
               </div>
             </div>
           </div>
